@@ -1,6 +1,7 @@
 import telebot
 from telebot import types
 import products_list
+# import emoji
 token = '1995044732:AAGCGjIXXm5h7hM6deRmNgTSEpE0oCoyxLs'
 bot = telebot.TeleBot(token)
 
@@ -21,7 +22,8 @@ def button(message):
 def callback(call):
     if call.message:
         if call.data == 'products':
-            text_to_send = products_list.products[0]
+            to_print = products_list.to_print
+            text_to_send = products_list.to_string(to_print[1])
             text_to_send = str(text_to_send)
             bot.edit_message_text(chat_id=call.message.chat.id,
                                   message_id=call.message.id, text=text_to_send)
