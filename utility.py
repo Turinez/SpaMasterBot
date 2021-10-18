@@ -1,2 +1,0 @@
-EMOJI  = []
-CALLBACK_BUTTON_PICTURE = 'Бомба '
