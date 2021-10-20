@@ -22,7 +22,7 @@ def button(message):
 def callback(call):
     if call.message:
         if call.data == 'products':
-            to_print = products_list.to_print
+            to_print = products_list.search()
             text_to_send = products_list.to_string(to_print[1])
             text_to_send = str(text_to_send)
             bot.edit_message_text(chat_id=call.message.chat.id,
