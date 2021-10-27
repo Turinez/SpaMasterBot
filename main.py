@@ -1,9 +1,16 @@
 import telebot
 from telebot import types
 import products_list
+import argparse
 # import emoji
-token = '1995044732:AAGCGjIXXm5h7hM6deRmNgTSEpE0oCoyxLs'
+parser = argparse.ArgumentParser()
+parser.add_argument('token', type=str)
+args = parser.parse_args()
+token = args.token
+
 bot = telebot.TeleBot(token)
+
+
 
 
 @bot.message_handler(commands=['button'])
@@ -34,6 +41,11 @@ def callback(call):
             bot.edit_message_text(chat_id=call.message.chat.id,
                                   message_id=call.message.id, text='г. Минск,ул. Мележа, д.5, корп.2, оф. 213')
 
+
+parser = argparse.ArgumentParser()
+parser.add_argument('token', type=str)
+args = parser.parse_args()
+token = args.token
 
 # сортировка по возрастани. list sort()
 
