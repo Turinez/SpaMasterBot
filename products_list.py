@@ -1,11 +1,16 @@
 def sort_key(e):
     return e[3]
 def to_string(product_list):
-    # -f'Косметика  фирмы{0}',
-    # print
-    # "Косметика профессиональная фирмы Atache, стоимостью 25 рублей"
-    product_str = 'Косметика ' + str(product_list[1]) + ' фирмы ' + str(product_list[0]) + ' стоимостью ' + str(product_list[3]) + ' рублей'
-    return product_str
+
+    return f"Косметика {str(product_list[1])} фирмы {str(product_list[0])} стоимостью {str(product_list[3])} рублей"
+
+def search():
+    sorted_products = sorted(products, key=sort_key)
+    to_print = sorted_products[0:10]
+    return to_print
+
+
+
 
 products = [('Atache', 'профессиональная', 'очищение', 25),
             ('Atache', 'профессиональная', 'уход', 18),
@@ -23,9 +28,6 @@ products = [('Atache', 'профессиональная', 'очищение', 2
             ('ThaiTraditions', 'профессиональная', 'уход', 7),
             ('ThaiTraditions', 'домашняя', 'крем', 6)]
 
-sorted_products = sorted(products, key=sort_key)
-to_print = sorted_products[0:10]
 
-# print(sorted(products, key=sort_key))
-# print(to_print)
+
 
