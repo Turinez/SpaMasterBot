@@ -29,11 +29,20 @@ def button(message):
 def callback(call):
     if call.message:
         if call.data == 'products':
-            to_print = products_list.search()
-            text_to_send = products_list.to_string(to_print[1])
-            text_to_send = str(text_to_send)
-            bot.edit_message_text(chat_id=call.message.chat.id,
-                                  message_id=call.message.id, text=text_to_send)
+            # to_print = products_list.search()
+            # text_to_send = products_list.to_string(to_print[1])
+            # text_to_send = str(text_to_send)
+            # bot.edit_message_text(chat_id=call.message.chat.id,
+            #                       message_id=call.message.id, text=text_to_send)
+
+
+            markup = types.InlineKeyboardMarkup(row_width=4)
+            item = types.InlineKeyboardButton('Профессиональная', callback_data='professional')
+            item2 = types.InlineKeyboardButton('Не профессиональная', callback_data='not_professional')
+            markup.add(item, item2)
+            bot.send_message(call.message.chat.id, 'Выберите, что Вам необходимо',
+                             reply_markup=markup)
+
         elif call.data == 'events':
             bot.edit_message_text(chat_id=call.message.chat.id,
                                   message_id=call.message.id, text='Супер семинар по массажу')
